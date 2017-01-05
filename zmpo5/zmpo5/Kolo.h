@@ -5,11 +5,11 @@ class Kolo : public Figura
 {
 public:
 	Kolo();
-	Kolo(double value);
-	double area();
-	double peremeter();
+	Kolo(double dValue);
+	double dArea();
+	double dPeremeter();
 	string toString();
-	double getR();
+	double dGetR();
 private:
-	double r;
+	double dR;
 };

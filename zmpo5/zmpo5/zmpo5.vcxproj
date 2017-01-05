@@ -118,7 +118,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Kolo.cpp" />
+    <ClCompile Include="Kwadrat.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Prostokat.cpp" />
+    <ClCompile Include="Trapez.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

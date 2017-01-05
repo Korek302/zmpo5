@@ -5,30 +5,30 @@
 
 Kolo::Kolo()
 {
-	r = 0.0;
+	dR = 0.0;
 }
 
-Kolo::Kolo(double value)
+Kolo::Kolo(double dValue)
 {
-	r = value;
+	dR = dValue;
 }
 
-double Kolo::area()
+double Kolo::dArea()
 {
-	return M_PI*getR()*getR();
+	return M_PI*dGetR()*dGetR();
 }
 
-double Kolo::peremeter()
+double Kolo::dPeremeter()
 {
-	return 2*M_PI*getR();
+	return 2*M_PI*dGetR();
 }
 
 string Kolo::toString()
 {
-	return "kolo(" + to_string(r) + ")";
+	return "Kolo(" + to_string(dR) + ")";
 }
 
-double Kolo::getR()
+double Kolo::dGetR()
 {
-	return r;
+	return dR;
 }
