@@ -9,6 +9,4 @@ public:
 	virtual double dArea() = 0;
 	virtual double dPeremeter() = 0;
 	virtual string toString() = 0;
-private:
-
 };

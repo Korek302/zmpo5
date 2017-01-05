@@ -13,6 +13,11 @@ Kolo::Kolo(double dValue)
 	dR = dValue;
 }
 
+Kolo::Kolo(const Kolo &pOther)
+{
+	*this = pOther;
+}
+
 double Kolo::dArea()
 {
 	return M_PI*dGetR()*dGetR();

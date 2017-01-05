@@ -1,22 +1,155 @@
+#include <string>
 #include <iostream>
-#include "Kolo.h"
-#include "Kwadrat.h"
-#include "Prostokat.h"
-#include "Trapez.h"
+
+#include "Header.h"
 
 int main()
 {
-	Kolo k(2.4);
-	cout << k.toString() << ", Area: " << k.dArea() << ", Peremeter: " << k.dPeremeter() << endl;
+	Figura** ppTab = NULL;
+	int iTabLength;
+	bool bIsCreated = false;
+	string sChoice;
+	do
+	{
+		cin >> sChoice;
+		if (sChoice == "!go")
+		{
+			if (bIsCreated)
+				cout << "table already created" << endl;
+			else
+			{
+				int iHowMany;
+				cin >> iHowMany;
+				if (iHowMany < 0)
+					cout << "ERROR" << endl;
+				else
+				{
+					iTabLength = iHowMany;
+					ppTab = new Figura*[iHowMany];
+					bIsCreated = true;
+					cout << "DONE" << endl;
+				}
+			}
+		}
+		else if (sChoice == "!createCircle")
+		{
+			if (!bIsCreated)
+				cout << "table not created" << endl;
+			else
+			{
+				int iPosition;
+				double dR;
+				cin >> iPosition;
+				cin >> dR;
+				createCircle(iPosition, dR, ppTab, iTabLength);
+			}
+		}
+		else if (sChoice == "!createSquare")
+		{
+			if (!bIsCreated)
+				cout << "table not created" << endl;
+			else
+			{
+				int iPosition;
+				double dSide;
+				cin >> iPosition;
+				cin >> dSide;
+				createSquare(iPosition, dSide, ppTab, iTabLength);
+			}
+		}
+		else if (sChoice == "!createRect")
+		{
+			if (!bIsCreated)
+				cout << "table not created" << endl;
+			else
+			{
+				int iPosition;
+				double dSide1;
+				double dSide2;
+				cin >> iPosition;
+				cin >> dSide1;
+				cin >> dSide2;
+				createRect(iPosition, dSide1, dSide2, ppTab, iTabLength);
+			}
+		}
+		else if (sChoice == "!createTrapeze")
+		{
+			if (!bIsCreated)
+				cout << "table not created" << endl;
+			else
+			{
+				int iPosition;
+				double dBase1;
+				double dBase2;
+				double dOffset;
+				double dHeight;
+				cin >> iPosition;
+				cin >> dBase1;
+				cin >> dBase2;
+				cin >> dOffset;
+				cin >> dHeight;
+				createTrapeze(iPosition, dBase1, dBase2, dOffset, dHeight, ppTab, iTabLength);
+			}
+		}
+		else if (sChoice == "!show")
+		{
+			if (!bIsCreated)
+				cout << "table not created" << endl;
+			else
+			{
+				int iPosition;
+				cin >> iPosition;
+				show(iPosition, ppTab, iTabLength);
+			}
+		}
+		else if (sChoice == "!showAll")
+		{
+			if (!bIsCreated)
+				cout << "table not created" << endl;
+			else
+			{
+				showAll(ppTab, iTabLength);
+			}
+		}
+		else if (sChoice == "!sumOfAreas")
+		{
+			if (!bIsCreated)
+				cout << "table not created" << endl;
+			else
+			{
+				sumOfAreas(ppTab, iTabLength);
+			}
+		}
+		else if (sChoice == "!sumOfPeremeters")
+		{
+			if (!bIsCreated)
+				cout << "table not created" << endl;
+			else
+			{
+				sumOfPeremeters(ppTab, iTabLength);
+			}
+		}
+		else if (sChoice == "!exit")
+		{
+			/*for (int iI = 0; iI < iTabLength; iI++)
+			{
+				if(typeid(*ppTab[iI]) == typeid(Kwadrat) || typeid(*ppTab[iI]) == typeid(Prostokat) 
+					|| typeid(*ppTab[iI]) == typeid(Kolo) || typeid(*ppTab[iI]) == typeid(Trapez))
+					delete ppTab[iI];
+			}*/
+			break;
+		}
+		else
+		{
+			cout << "wrong command" << endl;
+		}
 
-	Trapez t(3, 4, 1.5, 2);
-	cout << t.toString() << ", Area: " << t.dArea() << ", Peremeter: " << t.dPeremeter() << endl;
+	} while (sChoice[0] != '0');
 
-	Kwadrat kw(3);
-	cout << kw.toString() << ", Area: " << kw.dArea() << ", Peremeter: " << kw.dPeremeter() << endl;
-
-	Prostokat p(3, 4);
-	cout << p.toString() << ", Area: " << p.dArea() << ", Peremeter: " << p.dPeremeter() << endl;
+	if (bIsCreated)
+	{
+		delete ppTab;
+	}
 
 	getchar();
 	return 0;

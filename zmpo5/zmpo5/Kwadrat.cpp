@@ -10,6 +10,11 @@ Kwadrat::Kwadrat(double dNewSide)
 	dSide = dNewSide;
 }
 
+Kwadrat::Kwadrat(const Kwadrat &pOther)
+{
+	*this = pOther;
+}
+
 double Kwadrat::dArea()
 {
 	return dGetSide()*dGetSide();

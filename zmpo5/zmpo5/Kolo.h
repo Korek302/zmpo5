@@ -6,6 +6,7 @@ class Kolo : public Figura
 public:
 	Kolo();
 	Kolo(double dValue);
+	Kolo(const Kolo &pOther);
 	double dArea();
 	double dPeremeter();
 	string toString();

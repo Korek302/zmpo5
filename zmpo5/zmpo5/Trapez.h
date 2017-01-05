@@ -6,6 +6,7 @@ class Trapez : public Figura
 public:
 	Trapez();
 	Trapez(double dNewBase1, double dNewBase2, double dNewOffset, double dNewHeight);
+	Trapez(const Trapez &pOther);
 	double dArea();
 	double dPeremeter();
 	string toString();

@@ -19,6 +19,11 @@ Trapez::Trapez(double dNewBase1, double dNewBase2, double dNewOffset, double dNe
 	 dHeight = dNewHeight;
 }
 
+Trapez::Trapez(const Trapez &pOther)
+{
+	*this = pOther;
+}
+
 double Trapez::dArea()
 {
 	return ((dGetBase1()+dGetBase2())*dGetHeight())/2;

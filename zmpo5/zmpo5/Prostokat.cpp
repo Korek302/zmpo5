@@ -12,6 +12,11 @@ Prostokat::Prostokat(double dNewSide1, double dNewSide2)
 	dSide2 = dNewSide2;
 }
 
+Prostokat::Prostokat(const Prostokat &pOther)
+{
+	*this = pOther;
+}
+
 double Prostokat::dArea()
 {
 	return dGetSide1()*dGetSide2();
