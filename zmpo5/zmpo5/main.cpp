@@ -26,6 +26,8 @@ int main()
 				{
 					iTabLength = iHowMany;
 					ppTab = new Figura*[iHowMany];
+					for (int iI = 0; iI < iTabLength; iI++)
+						ppTab[iI] = NULL;
 					bIsCreated = true;
 					cout << "DONE" << endl;
 				}
@@ -79,16 +81,16 @@ int main()
 			else
 			{
 				int iPosition;
-				double dBase1;
-				double dBase2;
-				double dOffset;
+				double dBase;
+				double dOffset1;
+				double dOffset2;
 				double dHeight;
 				cin >> iPosition;
-				cin >> dBase1;
-				cin >> dBase2;
-				cin >> dOffset;
+				cin >> dBase;
+				cin >> dOffset1;
+				cin >> dOffset2;
 				cin >> dHeight;
-				createTrapeze(iPosition, dBase1, dBase2, dOffset, dHeight, ppTab, iTabLength);
+				createTrapeze(iPosition, dBase, dOffset1, dOffset2, dHeight, ppTab, iTabLength);
 			}
 		}
 		else if (sChoice == "!show")
@@ -131,12 +133,11 @@ int main()
 		}
 		else if (sChoice == "!exit")
 		{
-			/*for (int iI = 0; iI < iTabLength; iI++)
+			for (int iI = 0; iI < iTabLength; iI++)
 			{
-				if(typeid(*ppTab[iI]) == typeid(Kwadrat) || typeid(*ppTab[iI]) == typeid(Prostokat) 
-					|| typeid(*ppTab[iI]) == typeid(Kolo) || typeid(*ppTab[iI]) == typeid(Trapez))
+				if(ppTab[iI] != NULL)
 					delete ppTab[iI];
-			}*/
+			}
 			break;
 		}
 		else

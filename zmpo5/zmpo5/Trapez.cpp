@@ -5,17 +5,17 @@
 
 Trapez::Trapez()
 {
-	dBase1 = 0.0;
-	dBase2 = 0.0;
-	dBaseOffset = 0.0;
+	dLesserBase = 0.0;
+	dBaseOffset1 = 0.0;
+	dBaseOffset2 = 0.0;
 	dHeight = 0.0;
 }
 
-Trapez::Trapez(double dNewBase1, double dNewBase2, double dNewOffset, double dNewHeight)
+Trapez::Trapez(double dNewBase, double dNewOffset1, double dNewOffset2, double dNewHeight)
 {
-	 dBase1 = dNewBase1;
-	 dBase2 = dNewBase2;
-	 dBaseOffset = dNewOffset;
+	 dLesserBase = dNewBase;
+	 dBaseOffset1 = dNewOffset1;
+	 dBaseOffset2 = dNewOffset2;
 	 dHeight = dNewHeight;
 }
 
@@ -26,34 +26,34 @@ Trapez::Trapez(const Trapez &pOther)
 
 double Trapez::dArea()
 {
-	return ((dGetBase1()+dGetBase2())*dGetHeight())/2;
+	return ((dGetBase() + dGetBase() + dGetOffset1() + dGetOffset2())*dGetHeight())/2;
 }
 
 double Trapez::dPeremeter()
 {
-	return dGetBase1() + dGetBase2()+ sqrt(dGetOffset()*dGetOffset() + 
-		dGetHeight()*dGetHeight())+sqrt((dGetBase1()-dGetBase2()-dGetOffset()) + dGetHeight()*dGetHeight());
+	return dGetBase() + dGetBase() + dGetOffset1() + dGetOffset2() + sqrt(dGetOffset1()*dGetOffset1() + 
+		dGetHeight()*dGetHeight()) + sqrt(dGetOffset2()*dGetOffset2() + dGetHeight()*dGetHeight());
 }
 
 string Trapez::toString()
 {
-	return "Trapez(" + to_string(dBase1) + ", " + to_string(dBase2) + ", " + to_string(dBaseOffset) 
+	return "Trapez(" + to_string(dLesserBase) + ", " + to_string(dBaseOffset1) + ", " + to_string(dBaseOffset2) 
 		+ ", " + to_string(dHeight) + ")";
 }
 
-double Trapez::dGetBase1()
+double Trapez::dGetBase()
 {
-	return dBase1;
+	return dLesserBase;
 }
 
-double Trapez::dGetBase2()
+double Trapez::dGetOffset1()
 {
-	return dBase2;
+	return dBaseOffset1;
 }
 
-double Trapez::dGetOffset()
+double Trapez::dGetOffset2()
 {
-	return dBaseOffset;
+	return dBaseOffset2;
 }
 
 double Trapez::dGetHeight()

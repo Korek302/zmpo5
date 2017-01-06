@@ -16,7 +16,7 @@ void go(int iHowMany, Figura** ppTab, int iTabLength, bool bIsCreated)
 
 void createCircle(int iPosition, double dNewSideRadius, Figura** ppTab, int iTabLength)
 {
-	if (iPosition < 0 || iPosition > iTabLength - 1)
+	if (iPosition < 0 || iPosition > iTabLength - 1 || dNewSideRadius < 0)
 		cout << "ERROR" << endl;
 	else
 	{
@@ -27,7 +27,7 @@ void createCircle(int iPosition, double dNewSideRadius, Figura** ppTab, int iTab
 
 void createSquare(int iPosition, double dNewSide, Figura** ppTab, int iTabLength)
 {
-	if (iPosition < 0 || iPosition > iTabLength - 1)
+	if (iPosition < 0 || iPosition > iTabLength - 1 || dNewSide < 0)
 		cout << "ERROR" << endl;
 	else
 	{
@@ -38,7 +38,7 @@ void createSquare(int iPosition, double dNewSide, Figura** ppTab, int iTabLength
 
 void createRect(int iPosition, double dNewSide1, double dNewSide2, Figura** ppTab, int iTabLength)
 {
-	if (iPosition < 0 || iPosition > iTabLength - 1)
+	if (iPosition < 0 || iPosition > iTabLength - 1 || dNewSide1 < 0 || dNewSide2 < 0)
 		cout << "ERROR" << endl;
 	else
 	{
@@ -47,14 +47,14 @@ void createRect(int iPosition, double dNewSide1, double dNewSide2, Figura** ppTa
 	}
 }
 
-void createTrapeze(int iPosition, double dNewBase1, double dNewBase2, double dNewOffset, double dNewHeight,
+void createTrapeze(int iPosition, double dNewBase, double dNewOffset1, double dNewOffset2, double dNewHeight,
 	Figura** ppTab, int iTabLength)
 {
-	if (iPosition < 0 || iPosition > iTabLength - 1)
+	if (iPosition < 0 || iPosition > iTabLength - 1 || dNewBase < 0 || dNewOffset1 < 0 || dNewOffset2 < 0 || dNewHeight < 0)
 		cout << "ERROR" << endl;
 	else
 	{
-		ppTab[iPosition] = new Trapez(dNewBase1, dNewBase2, dNewOffset, dNewHeight);
+		ppTab[iPosition] = new Trapez(dNewBase, dNewOffset1, dNewOffset2, dNewHeight);
 		cout << "DONE" << endl;
 	}
 }
@@ -65,7 +65,8 @@ void show(int iPosition, Figura** ppTab, int iTabLength)
 		cout << "ERROR" << endl;
 	else
 	{
-		(*ppTab[iPosition]).toString();
+		if (ppTab[iPosition] != NULL)
+			cout << (*ppTab[iPosition]).toString() << endl;
 		cout << "DONE" << endl;
 	}
 }
@@ -78,7 +79,8 @@ void showAll(Figura** ppTab, int iTabLength)
 	{
 		for (int iI = 0; iI < iTabLength; iI++)
 		{
-			cout << (*ppTab[iI]).toString() << endl;
+			if (ppTab[iI] != NULL)
+				cout << (*ppTab[iI]).toString() << endl;
 		}
 		cout << "DONE" << endl;
 	}
@@ -93,7 +95,9 @@ void sumOfAreas(Figura** ppTab, int iTabLength)
 		double dSum = 0;
 		for (int iI = 0; iI < iTabLength; iI++)
 		{
-			dSum += (*ppTab[iI]).dArea();		}
+			if(ppTab[iI] != NULL)
+				dSum += (*ppTab[iI]).dArea();
+		}
 		cout << dSum << endl;
 		cout << "DONE" << endl;
 	}
@@ -108,7 +112,8 @@ void sumOfPeremeters(Figura** ppTab, int iTabLength)
 		double dSum = 0;
 		for (int iI = 0; iI < iTabLength; iI++)
 		{
-			dSum += (*ppTab[iI]).dPeremeter();
+			if (ppTab[iI] != NULL)
+				dSum += (*ppTab[iI]).dPeremeter();
 		}
 		cout << dSum << endl;
 		cout << "DONE" << endl;

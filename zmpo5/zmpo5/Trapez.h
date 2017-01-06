@@ -10,13 +10,13 @@ public:
 	double dArea();
 	double dPeremeter();
 	string toString();
-	double dGetBase1();
-	double dGetBase2();
-	double dGetOffset();
+	double dGetBase();
+	double dGetOffset1();
+	double dGetOffset2();
 	double dGetHeight();
 private:
-	double dBase1;
-	double dBase2;
-	double dBaseOffset;
+	double dLesserBase;
+	double dBaseOffset1;
+	double dBaseOffset2;
 	double dHeight;
 };

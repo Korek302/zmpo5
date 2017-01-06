@@ -12,10 +12,8 @@ void createSquare(int iPosition, double dNewSide, Figura** ppTab, int iTabLength
 
 void createRect(int iPosition, double dNewSide1, double dNewSide2, Figura** ppTab, int iTabLength);
 
-void createTrapeze(int iPosition, double dNewBase1, double dNewBase2, double dNewOffset, 
+void createTrapeze(int iPosition, double dNewBase, double dNewOffset1, double dNewOffset2, 
 	double dNewHeight, Figura** ppTab, int iTabLength);
-
-//void createCopy(int iPosition, int iPositionFrom, Figura** ppTab, int iTabLength);
 
 void show(int iPosition, Figura** ppTab, int iTabLength);
 void showAll(Figura** ppTab, int iTabLength);
