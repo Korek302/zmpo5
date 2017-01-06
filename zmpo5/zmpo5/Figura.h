@@ -6,7 +6,9 @@ using namespace std;
 class Figura
 {
 public:
-	virtual double dArea() = 0;
+	virtual ~Figura() {};
+	virtual double darea() = 0;
 	virtual double dPeremeter() = 0;
 	virtual string toString() = 0;
 };
+
