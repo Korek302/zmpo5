@@ -93,6 +93,21 @@ int main()
 				createTrapeze(iPosition, dBase, dOffset1, dOffset2, dHeight, ppTab, iTabLength);
 			}
 		}
+		else if (sChoice == "!createTriangle")
+		{
+			if (!bIsCreated)
+				cout << "table not created" << endl;
+			else
+			{
+				int iPosition;
+				double dSideA;
+				double dSideB;
+				cin >> iPosition;
+				cin >> dSideA;
+				cin >> dSideB;
+				createTriangle(iPosition, dSideA, dSideB, ppTab, iTabLength);
+			}
+		}
 		else if (sChoice == "!show")
 		{
 			if (!bIsCreated)

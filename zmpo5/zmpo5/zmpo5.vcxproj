@@ -116,6 +116,7 @@
     <ClInclude Include="Kwadrat.h" />
     <ClInclude Include="Prostokat.h" />
     <ClInclude Include="Trapez.h" />
+    <ClInclude Include="Trojkat.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Kolo.cpp" />
@@ -124,6 +125,7 @@
     <ClCompile Include="Prostokat.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Trapez.cpp" />
+    <ClCompile Include="Trojkat.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -59,6 +59,17 @@ void createTrapeze(int iPosition, double dNewBase, double dNewOffset1, double dN
 	}
 }
 
+void createTriangle(int iPosition, double dNewSideA, double dNewSideB, Figura** ppTab, int iTabLength)
+{
+	if (iPosition < 0 || iPosition > iTabLength - 1 || dNewSideA < 0 || dNewSideB < 0)
+		cout << "ERROR" << endl;
+	else
+	{
+		ppTab[iPosition] = new Trojkat(dNewSideA, dNewSideB);
+		cout << "DONE" << endl;
+	}
+}
+
 void show(int iPosition, Figura** ppTab, int iTabLength)
 {
 	if (iPosition < 0 || iPosition > iTabLength - 1)
